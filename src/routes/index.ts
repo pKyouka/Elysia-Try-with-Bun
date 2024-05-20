@@ -42,5 +42,4 @@ const Routes = new Elysia({ prefix: '/posts' })
 
     .delete('/:id', ({ params: {id}})=> deletePost(id))
   
-
 export default Routes;

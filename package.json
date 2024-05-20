@@ -6,8 +6,15 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@elysiajs/cors": "^1.0.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
     "@prisma/client": "^5.14.0",
+    "axios": "^1.7.1",
+    "cors": "^2.8.5",
     "elysia": "latest",
+    "framer-motion": "^11.2.4",
     "prisma": "^5.14.0"
   },
   "devDependencies": {

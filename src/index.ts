@@ -1,21 +1,16 @@
-//import elysia
-import { Elysia } from 'elysia';
+import { Elysia } from "elysia";
+import cors from "@elysiajs/cors";
+import { PrismaClient } from "@prisma/client";
 
-//import routes
-import Routes from './routes';
+const app = new Elysia()
+  .use(cors()) 
+  .get("/posts", async () => {
+    const prisma = new PrismaClient();
+    const posts = await prisma.post.findMany();
+    return posts;
+  })
+  .listen(3000);
 
-//initiate elysia
-const app = new Elysia();
-
-//route home
-app.get('/', () => 'Hello Elysia!');
-
-//add routes
-app.group('/api', (app) => app.use(Routes))
-
-//start server on port 3000
-app.listen(3000);
- 
 console.log(
-  `🦊 Elysia is running at http://${app.server?.hostname}:${app.server?.port}`
+  `🦊 Elysia is listening at http://${app.server?.hostname}:${app.server?.port}`
 );
